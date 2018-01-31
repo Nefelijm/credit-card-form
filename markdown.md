@@ -76,39 +76,58 @@
   
 ```
 5. **funciones de callback**
-
+ -Se da cuando llamo a una funcion y le envio por parametro otra funcion un callback) esperando que la función que llamé se encargue de ejecutar esa función.
  ```js 
+  $inputCard.on('input', function() {
+    isValidCreditCard($(this).val().trim());
+  });//Linea 14-15
+
+ function longitud(input) {
+  if (input.trim().length === 16) {
+    return input;//linea 29-30
+  }
+ }
+
+function soloNumeros(input) {
+  var regex = /^[0-9]+$/;
+  if (regex.test(input)) {
+    return input;
+  }
+ }//Linea 36-41
   
 ```
 
 6. **funciones expresions**
+    - Una expresión siempre devuelve un valor como resultado
 
- ```js 
-  
-```
 7. **funciones statement**
-- 
+    - Una sentencia realiza alguna acción
  ```js 
+     function activeButton() {};//linea 19
+     function desactiveButton() {};// linea 24
+     function longitud(input) {};// linea 29
+     function soloNumeros(input) {};// linea 36
+     function isValidCreditCard(numberCard) {};// linea 44
   
 ```
-8. **clousure**
+
+
+8. **funciones forman parte de la pila de ejecucion (stack execution)** 
+ - Son Aquellas funciones que primero se crea en el contexto de ejecucion Global para luego formar hacer parte d ela pila de ejecucion.
 
  ```js 
+     function activeButton() {};//linea 19
+     function desactiveButton() {};// linea 24
+     function longitud(input) {};// linea 29
+     function soloNumeros(input) {};// linea 36
+     function isValidCreditCard(numberCard) {};// linea 44
   
 ```
-
-9. **contextos de ejecucion** 
-
+9. **funciones forman parte de la cola de eventos (event queue)**
+- Espera que la pila este vacia para que esta empiece a ejecutarse (Entra los que estaban en la cola para ser parte d ela pila).
  ```js 
-  
+  $inputCard.on('input', function() {});
+	//linea 14
 ```
-10. **funciones forman parte de la pila de ejecucion (stack execution)** 
 
- ```js 
-  
-```
-11. **funciones forman parte de la cola de eventos (event queue)**
-
- ```js 
-  
-```
+Alumna: Joñoruco Morales Nefeli
